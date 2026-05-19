@@ -2,8 +2,6 @@ import { MotionReveal } from "@/components/ui/motion-reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Bed, Brain, HeartPulse, Activity, CheckCircle2, Star, Clock } from "lucide-react";
-import heroImg from "@assets/images/hero-bg.png";
-import doc1Img from "@assets/images/doctor-1.png";
 
 export default function Home() {
   return (
