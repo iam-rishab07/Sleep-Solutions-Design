@@ -8,7 +8,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/conditions", label: "Conditions" },
-  { href: "/doctors", label: "Doctors" },
+  { href: "/doctors", label: "Team" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,7 +25,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
@@ -69,8 +68,8 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-            <Button asChild size="lg" className="rounded-full font-medium" data-testid="nav-book-btn">
-              <Link href="/contact">Book Appointment</Link>
+            <Button asChild size="lg" className="rounded-full font-medium" data-testid="nav-contact-btn">
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </nav>
 
@@ -108,7 +107,7 @@ export function Navbar() {
             </ul>
             <div className="pt-4 border-t border-border">
               <Button asChild className="w-full rounded-full" size="lg">
-                <Link href="/contact">Book Appointment</Link>
+                <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>

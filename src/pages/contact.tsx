@@ -15,13 +15,11 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
         title: "Request Submitted Successfully",
-        description: "Our team will contact you shortly to confirm your appointment.",
+        description: "Our team will contact you shortly to assist you.",
       });
       (e.target as HTMLFormElement).reset();
     }, 1500);
@@ -35,7 +33,7 @@ export default function Contact() {
           <MotionReveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">Contact Us</h1>
             <p className="text-lg text-primary-foreground/80 leading-relaxed">
-              Take the first step toward restorative sleep. Reach out to schedule a consultation or ask any questions about our services.
+              Reach out to Sleep Solutions India for sleep test devices, CPAP, BIPAP, Ventilators, or Oxygen Concentrators — delivered to your home or hospital anywhere in Maharashtra.
             </p>
           </MotionReveal>
         </div>
@@ -44,42 +42,52 @@ export default function Contact() {
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16">
-            
+
             {/* Contact Info */}
             <div className="order-2 lg:order-1">
               <MotionReveal>
                 <div className="mb-12">
-                  <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Clinic Information</h2>
+                  <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Our Details</h2>
                   <p className="text-muted-foreground text-lg mb-8">
-                    We operate two state-of-the-art facilities designed specifically for sleep medicine.
+                    We supply sleep devices and provide support across all of Maharashtra. Contact us any time.
                   </p>
                 </div>
 
                 <div className="space-y-10">
-                  {/* Delhi Clinic */}
                   <div className="flex gap-4">
                     <div className="bg-primary/5 p-3 rounded-full h-fit shrink-0 text-primary">
                       <MapPin size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">New Delhi (Flagship)</h3>
-                      <p className="text-muted-foreground leading-relaxed mb-2">
-                        124 Wellness Avenue, Safdarjung Enclave<br />
-                        New Delhi, 110029, India
+                      <h3 className="text-xl font-bold mb-2">Address</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Shop No. 17, Legend Prestige,<br />
+                        Bhagwan Tatyasaheb Kawade Rd,<br />
+                        Behind Croma Center, Behind Bus Stop,<br />
+                        Bhaskar Colony, Swami Vivekanand Nagar,<br />
+                        Lakshmi Nagar, Wanowrie,<br />
+                        Pune, Maharashtra 411040, India.
                       </p>
-                      <a href="#" className="text-sm font-medium text-secondary hover:underline">Get Directions</a>
+                      <a
+                        href="https://maps.google.com/?q=Shop+No.17,+Legend+Prestige,+Bhagwan+Tatyasaheb+Kawade+Rd,+Wanowrie,+Pune,+Maharashtra+411040"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-secondary hover:underline mt-2 inline-block"
+                        data-testid="link-get-directions"
+                      >
+                        Get Directions
+                      </a>
                     </div>
                   </div>
 
-                  {/* Contact Methods */}
                   <div className="flex gap-4">
                     <div className="bg-primary/5 p-3 rounded-full h-fit shrink-0 text-primary">
                       <Phone size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Phone</h3>
-                      <p className="text-muted-foreground mb-1">Appointments: +91-11-4567-8900</p>
-                      <p className="text-muted-foreground">Sleep Lab Direct: +91-11-4567-8901</p>
+                      <h3 className="text-xl font-bold mb-2">Call Us</h3>
+                      <a href="tel:+917276850801" className="block text-muted-foreground hover:text-primary transition-colors mb-1" data-testid="link-phone-1">+91 7276850801</a>
+                      <a href="tel:+919503842008" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-phone-2">+91 9503842008</a>
                     </div>
                   </div>
 
@@ -89,8 +97,9 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-2">Email</h3>
-                      <p className="text-muted-foreground mb-1">General Inquiries: info@sleepsolutionsindia.com</p>
-                      <p className="text-muted-foreground">Patient Records: records@sleepsolutionsindia.com</p>
+                      <a href="mailto:info@sleepsolutionsindia.com" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-email">
+                        info@sleepsolutionsindia.com
+                      </a>
                     </div>
                   </div>
 
@@ -101,11 +110,9 @@ export default function Contact() {
                     <div>
                       <h3 className="text-xl font-bold mb-2">Working Hours</h3>
                       <ul className="text-muted-foreground space-y-1">
-                        <li className="flex justify-between w-48"><span>Mon - Fri:</span> <span>9:00 AM - 7:00 PM</span></li>
-                        <li className="flex justify-between w-48"><span>Saturday:</span> <span>9:00 AM - 2:00 PM</span></li>
-                        <li className="flex justify-between w-48 text-muted-foreground/60"><span>Sunday:</span> <span>Closed</span></li>
+                        <li className="flex justify-between w-56"><span>Mon - Sat:</span> <span>9:00 AM - 7:00 PM</span></li>
+                        <li className="flex justify-between w-56 text-muted-foreground/60"><span>Sunday:</span> <span>By Appointment</span></li>
                       </ul>
-                      <p className="text-xs text-muted-foreground/80 mt-2 italic">*Sleep studies are conducted overnight, 7 days a week.</p>
                     </div>
                   </div>
                 </div>
@@ -115,89 +122,97 @@ export default function Contact() {
             {/* Form */}
             <div className="order-1 lg:order-2">
               <MotionReveal delay={0.2} className="bg-white border border-border shadow-lg rounded-3xl p-8 md:p-10">
-                <h2 className="text-2xl font-serif font-bold mb-6">Request an Appointment</h2>
-                
+                <h2 className="text-2xl font-serif font-bold mb-6">Send Us a Message</h2>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name</Label>
-                      <Input id="firstName" required placeholder="John" className="bg-muted/50" />
+                      <Input id="firstName" required placeholder="Ramesh" className="bg-muted/50" data-testid="input-first-name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" required placeholder="Doe" className="bg-muted/50" />
+                      <Input id="lastName" required placeholder="Patil" className="bg-muted/50" data-testid="input-last-name" />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address</Label>
-                      <Input id="email" type="email" required placeholder="john@example.com" className="bg-muted/50" />
+                      <Input id="email" type="email" placeholder="ramesh@example.com" className="bg-muted/50" data-testid="input-email" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" required placeholder="+91 98765 43210" className="bg-muted/50" />
+                      <Input id="phone" type="tel" required placeholder="+91 98765 43210" className="bg-muted/50" data-testid="input-phone" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="service">Primary Concern / Service Required</Label>
-                    <Select required>
-                      <SelectTrigger id="service" className="bg-muted/50">
+                    <Label htmlFor="service">Device / Service Required</Label>
+                    <Select>
+                      <SelectTrigger id="service" className="bg-muted/50" data-testid="select-service">
                         <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="insomnia">Chronic Insomnia</SelectItem>
-                        <SelectItem value="snoring">Snoring / Sleep Apnea</SelectItem>
-                        <SelectItem value="fatigue">Excessive Daytime Fatigue</SelectItem>
-                        <SelectItem value="study">Requesting a Sleep Study</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="level2">Level 2 Sleep Test Device</SelectItem>
+                        <SelectItem value="level3">Level 3 Sleep Apnea Test</SelectItem>
+                        <SelectItem value="cpap">CPAP Machine</SelectItem>
+                        <SelectItem value="bipap">BIPAP Machine</SelectItem>
+                        <SelectItem value="bipap-ventilator">BIPAP Ventilator</SelectItem>
+                        <SelectItem value="oxygen">Oxygen Concentrator</SelectItem>
+                        <SelectItem value="other">Other / General Enquiry</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
+                    <Label htmlFor="city">Your City</Label>
+                    <Input id="city" placeholder="e.g. Pune, Nashik, Nagpur..." className="bg-muted/50" data-testid="input-city" />
+                  </div>
+
+                  <div className="space-y-2">
                     <Label htmlFor="message">Message (Optional)</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Briefly describe what you're experiencing..." 
-                      className="min-h-[120px] bg-muted/50"
+                    <Textarea
+                      id="message"
+                      placeholder="Tell us what you need or any questions you have..."
+                      className="min-h-[100px] bg-muted/50"
+                      data-testid="input-message"
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full h-12 text-base rounded-full" 
+                  <Button
+                    type="submit"
+                    className="w-full h-12 text-base rounded-full"
                     disabled={isSubmitting}
-                    data-testid="contact-submit-btn"
+                    data-testid="button-contact-submit"
                   >
                     {isSubmitting ? (
-                      "Sending Request..."
+                      "Sending..."
                     ) : (
-                      <>
-                        <Send className="mr-2" size={18} /> Send Request
-                      </>
+                      <><Send className="mr-2" size={18} /> Send Message</>
                     )}
                   </Button>
-                  
+
                   <p className="text-xs text-center text-muted-foreground mt-4">
-                    Your information is securely encrypted and kept strictly confidential.
+                    Your information is kept strictly confidential.
                   </p>
                 </form>
               </MotionReveal>
             </div>
-            
+
           </div>
         </div>
       </section>
 
       {/* Map Placeholder */}
       <section className="h-[400px] w-full bg-muted relative border-y border-border">
-        <div className="absolute inset-0 flex items-center justify-center flex-col text-muted-foreground/60">
-          <MapPin size={48} className="mb-4 text-muted-foreground/40" />
-          <p className="font-medium text-lg">Interactive Map View</p>
-          <p className="text-sm">Safdarjung Enclave, New Delhi</p>
-        </div>
+        <iframe
+          title="Sleep Solutions India Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7635!2d73.8939!3d18.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzU0LjYiTiA3M8KwNTMnMzguMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+          className="w-full h-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </section>
     </div>
   );
