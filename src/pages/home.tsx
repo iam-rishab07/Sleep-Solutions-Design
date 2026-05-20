@@ -141,14 +141,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
-              { title: "CPAP", img: "/images/products/cpap.jpg", href: "/services" },
-              { title: "BIPAP", img: "/images/products/bipap.jpg", href: "/services" },
-              { title: "Bacterial Filter", img: "/images/products/bacterial-filter.jpg", href: "/services" },
-              { title: "High Flow Oxygen Device", img: "/images/products/high-flow-oxygen.jpg", href: "/services" },
-              { title: "HME", img: "/images/products/hme.jpg", href: "/services" },
-              { title: "Sleep Diagnostics", img: "/images/products/sleep.jpg", href: "/services" },
-              { title: "Respiratory Systems", img: "/images/products/respiratory-systems.jpg", href: "/services" },
-              { title: "Breathing Circuits", img: "/images/products/breathing-circuits.jpg", href: "/services" },
+              { title: "CPAP", img: "/images/products/cpap.jpg", href: "/services#cpap" },
+              { title: "BIPAP", img: "/images/products/bipap.jpg", href: "/services#bipap" },
+              { title: "Bacterial Filter", img: "/images/products/bacterial-filter.jpg", href: "/services#bacterial-filter" },
+              { title: "High Flow Oxygen Device", img: "/images/products/high-flow-oxygen.jpg", href: "/services#high-flow-oxygen" },
+              { title: "HME", img: "/images/products/hme.jpg", href: "/services#hme" },
+              { title: "Sleep Diagnostics", img: "/images/products/sleep.jpg", href: "/services#sleep-diagnostics" },
+              { title: "Respiratory Systems", img: "/images/products/respiratory-systems.jpg", href: "/services#respiratory-systems" },
+              { title: "Breathing Circuits", img: "/images/products/breathing-circuits.jpg", href: "/services#breathing-circuits" },
             ].map((product, i) => (
               <MotionReveal key={i} delay={i * 0.07} direction="up">
                 <Link href={product.href} className="group block">
