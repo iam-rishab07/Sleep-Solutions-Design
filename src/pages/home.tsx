@@ -105,7 +105,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button variant="link" className="px-0 text-primary hover:text-primary/80 font-semibold group" asChild>
-                  <Link href="/team" className="flex items-center gap-2">
+                  <Link href="/doctors" className="flex items-center gap-2">
                     Meet Our Team <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
