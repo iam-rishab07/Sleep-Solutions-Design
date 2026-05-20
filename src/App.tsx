@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Page imports
 import Home from "@/pages/home";
@@ -44,6 +45,7 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        <SpeedInsights />
       </TooltipProvider>
     </QueryClientProvider>
   );
