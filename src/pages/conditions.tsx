@@ -5,53 +5,104 @@ import { Link } from "wouter";
 export default function Conditions() {
   const conditions = [
     {
-      id: "insomnia",
-      name: "Insomnia",
-      prevalence: "Very Common",
-      symptoms: ["Difficulty falling asleep", "Waking up frequently", "Waking up too early", "Daytime fatigue and irritability", "Anxiety about sleep"],
-      description: "Insomnia is characterized by an ongoing inability to get enough quality sleep, despite having the opportunity to do so. It can be acute (short-term) or chronic (lasting months or years) and severely impacts quality of life.",
-      treatment: "Cognitive Behavioral Therapy for Insomnia (CBT-I), sleep hygiene optimization, and in some cases, carefully managed temporary medication."
-    },
-    {
-      id: "osa",
+      id: "sleep-apnea",
       name: "Obstructive Sleep Apnea (OSA)",
+      prevalence: "Very Common",
+      symptoms: [
+        "Loud, chronic snoring",
+        "Gasping or choking during sleep",
+        "Witnessed breathing pauses",
+        "Morning headaches",
+        "Severe daytime sleepiness",
+      ],
+      description:
+        "A serious disorder where the airway repeatedly collapses during sleep, causing breathing to stop and start. Blood oxygen levels drop, straining the heart and leaving patients exhausted despite a full night in bed.",
+      device: "CPAP or BIPAP machine",
+      deviceNote:
+        "A CPAP or BIPAP device keeps the airway open throughout the night — no surgery, no medication. We supply, deliver, and set up the right machine for your home or hospital.",
+    },
+    {
+      id: "snoring",
+      name: "Snoring",
+      prevalence: "Very Common",
+      symptoms: [
+        "Loud snoring disturbing partner",
+        "Dry mouth or sore throat on waking",
+        "Restless sleep",
+        "Daytime fatigue",
+      ],
+      description:
+        "Snoring occurs when airflow causes tissues in the throat to vibrate. While often dismissed, chronic snoring can be a sign of underlying sleep apnea and should be properly assessed.",
+      device: "Level 3 Sleep Apnea Test + CPAP",
+      deviceNote:
+        "A Level 3 home sleep test first confirms whether sleep apnea is present. If diagnosed, a CPAP device resolves both snoring and the underlying breathing issue — without surgery.",
+    },
+    {
+      id: "hypoxemia",
+      name: "Nocturnal Hypoxemia",
       prevalence: "Common",
-      symptoms: ["Loud, chronic snoring", "Gasping or choking during sleep", "Witnessed breathing pauses", "Morning headaches", "Severe daytime sleepiness"],
-      description: "A potentially serious disorder where breathing repeatedly stops and starts during sleep because throat muscles intermittently relax and block the airway, causing blood oxygen levels to drop.",
-      treatment: "CPAP therapy, oral appliances, positional therapy, or in specific cases, surgical intervention."
+      symptoms: [
+        "Low blood oxygen during sleep",
+        "Frequent nighttime awakenings",
+        "Morning headaches",
+        "Confusion or poor concentration",
+        "Bluish tinge to lips or fingertips",
+      ],
+      description:
+        "Nocturnal hypoxemia is a drop in blood oxygen levels during sleep, often caused by sleep apnea, COPD, or other respiratory conditions. Left untreated it strains the heart and brain.",
+      device: "Oxygen Concentrator",
+      deviceNote:
+        "An oxygen concentrator delivers a continuous supply of purified oxygen through the night. We supply medical-grade stationary and portable concentrators for home and hospital use.",
     },
     {
-      id: "rls",
-      name: "Restless Legs Syndrome (RLS)",
+      id: "copd-breathing",
+      name: "COPD & Respiratory Insufficiency",
       prevalence: "Common",
-      symptoms: ["Overwhelming urge to move legs", "Crawling, tingling, or pulling sensations", "Symptoms worsen in evening/night", "Relief upon movement"],
-      description: "A neurological disorder characterized by a throbbing, pulling, creeping, or other unpleasant sensation in the legs and an uncontrollable, and sometimes overwhelming, urge to move them.",
-      treatment: "Iron supplementation (if deficient), specialized medications, lifestyle adjustments, and identifying trigger factors."
+      symptoms: [
+        "Chronic shortness of breath",
+        "Difficulty breathing when lying flat",
+        "Poor sleep quality",
+        "Frequent use of rescue inhalers",
+        "Fatigue and reduced exercise tolerance",
+      ],
+      description:
+        "Chronic Obstructive Pulmonary Disease (COPD) and related respiratory conditions impair breathing during sleep, causing hypoxia and sleep fragmentation that compounds daytime symptoms.",
+      device: "BIPAP or Oxygen Concentrator",
+      deviceNote:
+        "BIPAP machines support breathing with two pressure levels — easier for COPD patients who find CPAP uncomfortable. Paired with an oxygen concentrator when needed. We supply both for home and clinical use.",
     },
     {
-      id: "narcolepsy",
-      name: "Narcolepsy",
-      prevalence: "Rare",
-      symptoms: ["Excessive daytime sleepiness", "Sudden loss of muscle tone (cataplexy)", "Sleep paralysis", "Hallucinations when falling asleep"],
-      description: "A chronic neurological disorder that affects the brain's ability to control sleep-wake cycles. People with narcolepsy may feel rested after waking, but then feel very sleepy throughout much of the day.",
-      treatment: "Wake-promoting medications, strategically scheduled short naps, and specialized therapies for cataplexy."
+      id: "respiratory-failure",
+      name: "Respiratory Failure & Ventilatory Support",
+      prevalence: "Serious",
+      symptoms: [
+        "Severe shortness of breath at rest",
+        "Inability to breathe without assistance",
+        "Neuromuscular weakness affecting breathing",
+        "Chronic hypoventilation",
+      ],
+      description:
+        "Patients with neuromuscular conditions (ALS, muscular dystrophy), severe COPD, or post-surgical respiratory compromise may need mechanical ventilatory support at home or in hospital.",
+      device: "BIPAP Ventilator",
+      deviceNote:
+        "We supply advanced BIPAP ventilator machines for life-sustaining respiratory support. Available for home setup and hospital supply across Maharashtra, with full technical setup assistance.",
     },
     {
-      id: "rem-behavior",
-      name: "REM Sleep Behavior Disorder",
-      prevalence: "Uncommon",
-      symptoms: ["Physically acting out dreams", "Vocalizing, shouting, or swearing during sleep", "Kicking, punching, or thrashing"],
-      description: "A parasomnia where the normal muscle paralysis that occurs during REM (dreaming) sleep is absent, causing patients to physically act out vivid, often unpleasant dreams.",
-      treatment: "Environmental safety modifications, specific medications to suppress symptoms, and ongoing neurological monitoring."
+      id: "complex-sleep-apnea",
+      name: "Complex / Central Sleep Apnea",
+      prevalence: "Less Common",
+      symptoms: [
+        "Breathing pauses not caused by airway blockage",
+        "Cheyne-Stokes breathing pattern",
+        "Associated with heart failure or stroke",
+        "CPAP therapy not providing relief",
+      ],
+      description:
+        "Central sleep apnea occurs when the brain fails to send proper signals to breathing muscles. It often coexists with obstructive apnea (mixed apnea) and requires a different device approach than standard OSA.",
+      device: "BIPAP / Adaptive Servo-Ventilation",
+      deviceNote:
+        "BIPAP and adaptive devices address both the obstructive and central components. Our Level 2 home sleep test can capture the full overnight breathing profile needed for an accurate diagnosis.",
     },
-    {
-      id: "shift-work",
-      name: "Shift Work Sleep Disorder",
-      prevalence: "Common (in shift workers)",
-      symptoms: ["Insomnia when trying to sleep", "Excessive sleepiness during waking hours", "Difficulty concentrating", "Lack of energy"],
-      description: "A circadian rhythm disorder occurring in people who work non-traditional hours. The body's internal clock remains misaligned with the required work schedule.",
-      treatment: "Strategic light exposure therapy, optimized sleep scheduling, melatonin supplements, and wake-promoting agents."
-    }
   ];
 
   return (
@@ -62,9 +113,9 @@ export default function Conditions() {
         <div className="container relative z-10 mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
             <MotionReveal>
-              <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Conditions We Treat</h1>
+              <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Conditions We Help</h1>
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
-                Sleep disorders are complex medical conditions that require specialized attention. We diagnose and treat the complete spectrum of sleep-related issues.
+                Sleep Solutions India supplies the right device for every sleep-related breathing condition — from diagnosis at home to ongoing therapy, without hospitalization.
               </p>
             </MotionReveal>
           </div>
@@ -76,20 +127,20 @@ export default function Conditions() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-8">
             {conditions.map((condition, index) => (
-              <MotionReveal key={condition.id} delay={index * 0.1}>
+              <MotionReveal key={condition.id} delay={index * 0.08}>
                 <div className="bg-white border border-border rounded-3xl p-8 md:p-10 h-full flex flex-col hover:border-primary/30 transition-colors shadow-sm">
                   <div className="flex justify-between items-start mb-6">
-                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground">{condition.name}</h2>
-                    <span className="text-xs font-medium uppercase tracking-wider bg-muted text-muted-foreground px-3 py-1 rounded-full whitespace-nowrap">
+                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground pr-4">{condition.name}</h2>
+                    <span className="text-xs font-medium uppercase tracking-wider bg-muted text-muted-foreground px-3 py-1 rounded-full whitespace-nowrap shrink-0">
                       {condition.prevalence}
                     </span>
                   </div>
-                  
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
+
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {condition.description}
                   </p>
-                  
-                  <div className="grid sm:grid-cols-2 gap-8 mb-8 flex-1">
+
+                  <div className="grid sm:grid-cols-2 gap-6 mb-6 flex-1">
                     <div>
                       <h3 className="font-semibold text-sm uppercase tracking-wider text-foreground mb-4 border-b pb-2">Common Symptoms</h3>
                       <ul className="space-y-2">
@@ -102,17 +153,18 @@ export default function Conditions() {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-sm uppercase tracking-wider text-primary mb-4 border-b border-primary/10 pb-2">Our Approach</h3>
+                      <h3 className="font-semibold text-sm uppercase tracking-wider text-primary mb-4 border-b border-primary/10 pb-2">Device Solution</h3>
+                      <p className="text-sm font-semibold text-primary mb-2">{condition.device}</p>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        {condition.treatment}
+                        {condition.deviceNote}
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="pt-6 mt-auto border-t border-border">
                     <Button variant="ghost" className="w-full justify-between hover:bg-primary hover:text-primary-foreground" asChild>
                       <Link href="/contact">
-                        Consult about this condition <span className="text-lg">→</span>
+                        Enquire about this condition <span className="text-lg">→</span>
                       </Link>
                     </Button>
                   </div>
@@ -122,17 +174,17 @@ export default function Conditions() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA */}
       <section className="py-20 bg-white border-t border-border">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
           <MotionReveal>
-            <h2 className="text-3xl font-serif font-bold mb-4">Don't see your symptoms listed?</h2>
+            <h2 className="text-3xl font-serif font-bold mb-4">Not sure which device you need?</h2>
             <p className="text-muted-foreground text-lg mb-8">
-              There are over 80 classified sleep disorders. If you're experiencing unrestful sleep, chronic fatigue, or unusual nighttime behaviors, our specialists can help pinpoint the cause.
+              Our team will guide you to the right sleep test or therapy device based on your condition. We serve all of Maharashtra — at your home or hospital, with full setup support.
             </p>
             <Button size="lg" className="rounded-full px-8" asChild>
-              <Link href="/contact">Schedule an Evaluation</Link>
+              <Link href="/contact">Contact Us Today</Link>
             </Button>
           </MotionReveal>
         </div>
