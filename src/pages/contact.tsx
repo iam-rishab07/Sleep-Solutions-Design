@@ -103,12 +103,10 @@ export default function Contact() {
                     <div>
                       <h3 className="text-xl font-bold mb-2">Address</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Shop No. 17, Legend Prestige,<br />
-                        Bhagwan Tatyasaheb Kawade Rd,<br />
-                        Behind Croma Center, Behind Bus Stop,<br />
-                        Bhaskar Colony, Swami Vivekanand Nagar,<br />
-                        Lakshmi Nagar, Wanowrie,<br />
-                        Pune, Maharashtra 411040, India.
+                        Prime Arcade,<br />
+                        1154, Saifee St,<br />
+                        Camp, Pune 411001,<br />
+                        Maharashtra, India 
                       </p>
                       <a
                         href="https://maps.google.com"
