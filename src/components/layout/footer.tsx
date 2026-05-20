@@ -39,10 +39,10 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="shrink-0 text-secondary mt-0.5" />
                 <span>
-                  Shop No. 17, Legend Prestige,<br />
-                  Bhagwan Tatyasaheb Kawade Rd,<br />
-                  Wanowrie, Pune 411040<br />
-                  Maharashtra, India
+                  Prime Arcade,<br />
+                  1154, Saifee St,<br />
+                  Camp, Pune 411001,<br />
+                  Maharashtra, India 
                 </span>
               </li>
               <li className="flex items-center gap-3">
