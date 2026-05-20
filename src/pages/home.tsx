@@ -129,39 +129,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Devices / Services Overview */}
-      <section className="py-24 bg-primary text-primary-foreground">
+      {/* Our Products */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <MotionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Devices We Supply</h2>
-              <p className="text-primary-foreground/80 text-lg">Medical-grade sleep testing and therapy equipment for home and hospital use across Maharashtra.</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Our Products</h2>
+              <p className="text-muted-foreground text-lg">Medical-grade sleep testing and respiratory therapy equipment — supplied to homes and hospitals across Maharashtra.</p>
             </div>
           </MotionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
-              { icon: Activity, title: "Level 2 & 3 Sleep Test", desc: "Full diagnostic sleep test devices for home and hospital. Accurate, easy-to-use, and medically certified." },
-              { icon: Wind, title: "CPAP & BIPAP Machines", desc: "Continuous and Bi-level Positive Airway Pressure devices for effective sleep apnea treatment at home." },
-              { icon: Zap, title: "BIPAP Ventilators", desc: "Advanced BIPAP ventilator machines for patients requiring respiratory support." },
-              { icon: Waves, title: "Oxygen Concentrators", desc: "Reliable oxygen concentrators for home and clinical use, ensuring steady oxygen supply." },
-              { icon: Activity, title: "Sleep Apnea Test Kits", desc: "Comprehensive testing kits to diagnose obstructive sleep apnea conveniently at home." },
-              { icon: Wind, title: "Home & Hospital Supply", desc: "We deliver and support all devices at your home or hospital anywhere across Maharashtra." },
-            ].map((service, i) => (
-              <MotionReveal key={i} delay={i * 0.1} direction="up">
-                <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-8 hover:bg-primary-foreground/10 transition-colors h-full flex flex-col">
-                  <div className="bg-secondary text-primary rounded-full w-14 h-14 flex items-center justify-center mb-6">
-                    <service.icon size={28} strokeWidth={1.5} />
+              { title: "CPAP", img: "/images/products/cpap.jpg", href: "/services" },
+              { title: "BIPAP", img: "/images/products/bipap.jpg", href: "/services" },
+              { title: "Bacterial Filter", img: "/images/products/bacterial-filter.jpg", href: "/services" },
+              { title: "High Flow Oxygen Device", img: "/images/products/high-flow-oxygen.jpg", href: "/services" },
+              { title: "HME", img: "/images/products/hme.jpg", href: "/services" },
+              { title: "Sleep Diagnostics", img: "/images/products/sleep.jpg", href: "/services" },
+              { title: "Respiratory Systems", img: "/images/products/respiratory-systems.jpg", href: "/services" },
+              { title: "Breathing Circuits", img: "/images/products/breathing-circuits.jpg", href: "/services" },
+            ].map((product, i) => (
+              <MotionReveal key={i} delay={i * 0.07} direction="up">
+                <Link href={product.href} className="group block">
+                  <div className="rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all bg-white">
+                    <div className="aspect-[4/3] overflow-hidden bg-muted">
+                      <img
+                        src={product.img}
+                        alt={product.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h3 className="font-semibold text-foreground text-sm md:text-base group-hover:text-primary transition-colors leading-snug">
+                        {product.title}
+                      </h3>
+                      <span className="text-xs font-medium text-primary border border-primary/30 rounded-full px-3 py-1 ml-2 shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        Read More
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-serif font-bold mb-3">{service.title}</h3>
-                  <p className="text-primary-foreground/70 leading-relaxed flex-1">{service.desc}</p>
-                </div>
+                </Link>
               </MotionReveal>
             ))}
           </div>
 
           <MotionReveal delay={0.4} className="text-center mt-12">
-            <Button variant="outline" className="rounded-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+            <Button className="rounded-full px-8" asChild>
               <Link href="/services">View All Services</Link>
             </Button>
           </MotionReveal>
