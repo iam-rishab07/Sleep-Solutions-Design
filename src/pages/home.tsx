@@ -45,7 +45,7 @@ export default function Home() {
                   <Link href="/contact">Get in Touch</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full h-14 px-8 text-base border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm" asChild data-testid="hero-cta-services">
-                  <Link href="/services">Our Devices</Link>
+                  <Link href="/services">Our Services</Link>
                 </Button>
               </div>
             </MotionReveal>
