@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Moon, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,13 +8,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 group inline-block">
-              <div className="bg-primary-foreground text-primary p-2 rounded-full">
-                <Moon size={24} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-xl leading-none text-primary-foreground">Sleep Solutions</span>
-                <span className="text-[10px] uppercase tracking-widest text-primary-foreground/70 font-medium">India</span>
+            <Link href="/" className="inline-block group">
+              <div className="bg-white rounded-xl px-3 py-2 inline-block group-hover:shadow-md transition-shadow">
+                <img
+                  src="/images/logo.png"
+                  alt="Sleep Solutions India"
+                  className="h-14 w-auto object-contain"
+                />
               </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm mt-4 leading-relaxed">

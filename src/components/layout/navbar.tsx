@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Moon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -34,19 +34,22 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b border-transparent",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-border shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "bg-background/95 backdrop-blur-md border-border shadow-sm py-2"
+          : "bg-white/10 backdrop-blur-sm py-3"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group" data-testid="nav-logo">
-            <div className="bg-primary text-primary-foreground p-2 rounded-full transition-transform group-hover:scale-105">
-              <Moon size={24} strokeWidth={1.5} />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-bold text-xl leading-none text-primary">Sleep Solutions</span>
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">India</span>
+          <Link href="/" className="flex items-center group" data-testid="nav-logo">
+            <div className={cn(
+              "rounded-lg px-2 py-1 transition-all duration-300",
+              isScrolled ? "bg-white" : "bg-white/90"
+            )}>
+              <img
+                src="/images/logo.png"
+                alt="Sleep Solutions India"
+                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+              />
             </div>
           </Link>
 
@@ -59,7 +62,9 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-colors hover:text-primary",
-                      location === link.href ? "text-primary" : "text-muted-foreground"
+                      isScrolled
+                        ? (location === link.href ? "text-primary" : "text-muted-foreground")
+                        : (location === link.href ? "text-white" : "text-white/80")
                     )}
                     data-testid={`nav-link-${link.label.toLowerCase()}`}
                   >
@@ -68,14 +73,27 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-            <Button asChild size="lg" className="rounded-full font-medium" data-testid="nav-contact-btn">
+            <Button
+              asChild
+              size="lg"
+              className={cn(
+                "rounded-full font-medium transition-colors",
+                isScrolled
+                  ? ""
+                  : "bg-white text-primary hover:bg-white/90"
+              )}
+              data-testid="nav-contact-btn"
+            >
               <Link href="/contact">Contact Us</Link>
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className={cn(
+              "md:hidden p-2",
+              isScrolled ? "text-foreground" : "text-white"
+            )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="mobile-menu-toggle"
             aria-label="Toggle menu"
