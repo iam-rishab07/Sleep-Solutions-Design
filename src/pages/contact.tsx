@@ -1,3 +1,10 @@
+To implement the WhatsApp redirect perfectly without changing your UI or layout structure, we need to extract the information directly from your components.
+
+The standard inputs are easy to read using names, but shadcn's custom `<Select>` component doesn't use a standard hidden `<input>` under the hood. To capture the selected device value seamlessly, we will add a local state variable `const [selectedService, setSelectedService] = useState("");` and hook it up to the `<Select value={selectedService} onValueChange={setSelectedService}>` wrapper.
+
+Here is your updated `Contact` component file with the logic added directly into your `handleSubmit`:
+
+```tsx
 import { MotionReveal } from "@/components/ui/motion-reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,18 +18,63 @@ import { useToast } from "@/hooks/use-toast";
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // Track the custom Select component value safely
+  const [selectedService, setSelectedService] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const target = e.target as HTMLFormElement;
+    const formData = new FormData(target);
+
+    // Extracting standard input values using their name attributes
+    const firstName = formData.get("firstName") || "";
+    const lastName = formData.get("lastName") || "";
+    const email = formData.get("email") || "Not Provided";
+    const phone = formData.get("phone") || "";
+    const city = formData.get("city") || "";
+    const message = formData.get("message") || "None Provided";
+
+    // Mapping keys to readable text strings for the client's business clarity
+    const serviceLabels: Record<string, string> = {
+      level2: "Level 2 Sleep Test Device",
+      level3: "Level 3 Sleep Apnea Test",
+      cpap: "CPAP Machine",
+      bipap: "BIPAP Machine",
+      "bipap-ventilator": "BIPAP Ventilator",
+      oxygen: "Oxygen Concentrator",
+      other: "Other / General Enquiry",
+    };
+    const readableService = serviceLabels[selectedService] || "Not Specified";
+
+    // Format the text using WhatsApp bold tags (*) and URI linebreaks (%0A)
+    const businessNumber = "917276850801";
+    const textMessage = `*New Inquiry from Website*%0A%0A` +
+      `*Name:* ${firstName} ${lastName}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Phone:* ${phone}%0A` +
+      `*Device/Service:* ${readableService}%0A` +
+      `*City:* ${city}%0A%0A` +
+      `*Message:* ${message}`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${businessNumber}&text=${textMessage}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
+
+      // Open WhatsApp setup
+      window.open(whatsappUrl, "_blank");
+
       toast({
-        title: "Request Submitted Successfully",
-        description: "Our team will contact you shortly to assist you.",
+        title: "Redirecting to WhatsApp...",
+        description: "Please send the pre-filled text to submit your inquiry.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+
+      // Clear the inputs and reset state
+      target.reset();
+      setSelectedService("");
+    }, 1000);
   };
 
   return (
@@ -128,28 +180,28 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name</Label>
-                      <Input id="firstName" required placeholder="Ramesh" className="bg-muted/50" data-testid="input-first-name" />
+                      <Input id="firstName" name="firstName" required placeholder="Ramesh" className="bg-muted/50" data-testid="input-first-name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" required placeholder="Patil" className="bg-muted/50" data-testid="input-last-name" />
+                      <Input id="lastName" name="lastName" required placeholder="Patil" className="bg-muted/50" data-testid="input-last-name" />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address</Label>
-                      <Input id="email" type="email" placeholder="ramesh@example.com" className="bg-muted/50" data-testid="input-email" />
+                      <Input id="email" name="email" type="email" placeholder="ramesh@example.com" className="bg-muted/50" data-testid="input-email" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" required placeholder="+91 98765 43210" className="bg-muted/50" data-testid="input-phone" />
+                      <Input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" className="bg-muted/50" data-testid="input-phone" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="service">Device / Service Required</Label>
-                    <Select>
+                    <Select value={selectedService} onValueChange={setSelectedService}>
                       <SelectTrigger id="service" className="bg-muted/50" data-testid="select-service">
                         <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
@@ -167,13 +219,14 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <Label htmlFor="city">Your City</Label>
-                    <Input id="city" placeholder="e.g. Pune, Nashik, Nagpur..." className="bg-muted/50" data-testid="input-city" />
+                    <Input id="city" name="city" placeholder="e.g. Pune, Nashik, Nagpur..." className="bg-muted/50" data-testid="input-city" />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Message (Optional)</Label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Tell us what you need or any questions you have..."
                       className="min-h-[100px] bg-muted/50"
                       data-testid="input-message"
@@ -217,3 +270,5 @@ export default function Contact() {
     </div>
   );
 }
+
+```
