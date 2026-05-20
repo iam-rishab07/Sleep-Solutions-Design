@@ -67,7 +67,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* LIGHT MODE */
+/* LIGHT MODE - CLINICAL & CLEAN */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -77,51 +77,53 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  --background: 220 20% 98%;
-  --foreground: 230 40% 15%;
+  /* Pure White Background for that sterile, clean medical feel */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
 
-  --border: 220 15% 90%;
+  --border: 214 32% 91%;
   
   --card: 0 0% 100%;
-  --card-foreground: 230 40% 15%;
-  --card-border: 220 15% 90%;
+  --card-foreground: 222 47% 11%;
+  --card-border: 214 32% 91%;
 
-  --sidebar: 220 20% 98%;
-  --sidebar-foreground: 230 40% 15%;
-  --sidebar-border: 220 15% 90%;
-  --sidebar-primary: 230 45% 20%;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-border: 214 32% 91%;
+  --sidebar-primary: 222 47% 11%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 25% 92%;
-  --sidebar-accent-foreground: 230 40% 15%;
-  --sidebar-ring: 230 45% 20%;
+  --sidebar-accent: 210 40% 96%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-ring: 222 47% 11%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 230 40% 15%;
-  --popover-border: 220 15% 90%;
+  --popover-foreground: 222 47% 11%;
+  --popover-border: 214 32% 91%;
 
+  /* The Deep Serene Blue - kept intact for branding */
   --primary: 230 45% 20%;
   --primary-foreground: 0 0% 100%;
 
-  /* CHANGED: Made the secondary backgrounds a darker steel gray for high contrast */
-  --secondary: 220 15% 35%;
-  --secondary-foreground: 0 0% 100%; /* Pure white text inside those elements */
+  /* Soft Slate/Gray background for secondary areas (inputs, light cards) */
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
 
-  /* CHANGED: Also darkened muted inputs for clear visibility */
-  --muted: 220 15% 35%;
-  --muted-foreground: 220 20% 85%; /* Light gray placeholder text */
+  /* Subtle contrast for placeholders and muted containers */
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
 
-  /* CHANGED: Matching accent */
-  --accent: 220 15% 35%;
-  --accent-foreground: 0 0% 100%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
 
-  --destructive: 0 70% 50%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
 
-  --input: 220 15% 85%;
+  /* Input fields get standard clean borders with clear focus rings */
+  --input: 214 32% 91%;
   --ring: 230 45% 20%;
   
   --chart-1: 230 45% 30%;
-  --chart-2: 220 15% 75%;
+  --chart-2: 210 40% 96%;
   --chart-3: 190 40% 40%;
   --chart-4: 280 30% 50%;
   --chart-5: 340 35% 55%;
@@ -132,14 +134,14 @@
   
   --radius: 0.5rem;
   
-  --shadow-2xs: 0px 2px 0px 0px hsl(230 45% 20% / 0.05);
-  --shadow-xs: 0px 2px 0px 0px hsl(230 45% 20% / 0.05);
-  --shadow-sm: 0px 2px 0px 0px hsl(230 45% 20% / 0.05), 0px 1px 2px -1px hsl(230 45% 20% / 0.05);
-  --shadow: 0px 2px 0px 0px hsl(230 45% 20% / 0.05), 0px 1px 2px -1px hsl(230 45% 20% / 0.05);
-  --shadow-md: 0px 2px 0px 0px hsl(230 45% 20% / 0.05), 0px 2px 4px -1px hsl(230 45% 20% / 0.05);
-  --shadow-lg: 0px 2px 0px 0px hsl(230 45% 20% / 0.05), 0px 4px 6px -1px hsl(230 45% 20% / 0.05);
-  --shadow-xl: 0px 2px 0px 0px hsl(230 45% 20% / 0.05), 0px 8px 10px -1px hsl(230 45% 20% / 0.05);
-  --shadow-2xl: 0px 2px 0px 0px hsl(230 45% 20% / 0.05);
+  --shadow-2xs: 0px 2px 0px 0px hsl(222 47% 11% / 0.02);
+  --shadow-xs: 0px 2px 0px 0px hsl(222 47% 11% / 0.02);
+  --shadow-sm: 0px 2px 0px 0px hsl(222 47% 11% / 0.02), 0px 1px 2px -1px hsl(222 47% 11% / 0.02);
+  --shadow: 0px 2px 0px 0px hsl(222 47% 11% / 0.02), 0px 1px 2px -1px hsl(222 47% 11% / 0.02);
+  --shadow-md: 0px 2px 0px 0px hsl(222 47% 11% / 0.02), 0px 2px 4px -1px hsl(222 47% 11% / 0.02);
+  --shadow-lg: 0px 2px 0px 0px hsl(222 47% 11% / 0.02), 0px 4px 6px -1px hsl(222 47% 11% / 0.02);
+  --shadow-xl: 0px 2px 0px 0px hsl(222 47% 11% / 0.02), 0px 8px 10px -1px hsl(222 47% 11% / 0.02);
+  --shadow-2xl: 0px 2px 0px 0px hsl(222 47% 11% / 0.02);
   
   --tracking-normal: 0em;
   --spacing: 0.25rem;
@@ -162,51 +164,51 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  --background: 230 45% 10%;
-  --foreground: 220 20% 95%;
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
 
-  --border: 230 30% 20%;
+  --border: 217 32% 17%;
   
-  --card: 230 45% 12%;
-  --card-foreground: 220 20% 95%;
-  --card-border: 230 30% 20%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 217 32% 17%;
 
-  --sidebar: 230 45% 12%;
-  --sidebar-foreground: 220 20% 95%;
-  --sidebar-border: 230 30% 20%;
-  --sidebar-primary: 220 20% 95%;
-  --sidebar-primary-foreground: 230 45% 10%;
-  --sidebar-accent: 230 35% 20%;
-  --sidebar-accent-foreground: 220 20% 95%;
-  --sidebar-ring: 220 20% 95%;
+  --sidebar: 222 47% 11%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-border: 217 32% 17%;
+  --sidebar-primary: 210 40% 98%;
+  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-accent: 217 32% 17%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-ring: 212 26% 39%;
 
-  --popover: 230 45% 12%;
-  --popover-foreground: 220 20% 95%;
-  --popover-border: 230 30% 20%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 217 32% 17%;
 
-  --primary: 220 20% 95%;
-  --primary-foreground: 230 45% 10%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222 47% 11%;
 
-  --secondary: 230 30% 18%;
-  --secondary-foreground: 220 20% 90%;
+  --secondary: 217 32% 17%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 230 35% 20%;
-  --muted-foreground: 220 15% 65%;
+  --muted: 217 32% 17%;
+  --muted-foreground: 215 20% 65%;
 
-  --accent: 230 30% 18%;
-  --accent-foreground: 220 20% 90%;
+  --accent: 217 32% 17%;
+  --accent-foreground: 210 40% 98%;
 
-  --destructive: 0 60% 40%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
 
-  --input: 230 30% 25%;
-  --ring: 220 20% 95%;
+  --input: 217 32% 17%;
+  --ring: 212 26% 39%;
   
-  --chart-1: 220 20% 80%;
-  --chart-2: 230 25% 40%;
-  --chart-3: 190 40% 60%;
-  --chart-4: 280 30% 70%;
-  --chart-5: 340 35% 75%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.3);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.3);
