@@ -1,10 +1,3 @@
-To implement the WhatsApp redirect perfectly without changing your UI or layout structure, we need to extract the information directly from your components.
-
-The standard inputs are easy to read using names, but shadcn's custom `<Select>` component doesn't use a standard hidden `<input>` under the hood. To capture the selected device value seamlessly, we will add a local state variable `const [selectedService, setSelectedService] = useState("");` and hook it up to the `<Select value={selectedService} onValueChange={setSelectedService}>` wrapper.
-
-Here is your updated `Contact` component file with the logic added directly into your `handleSubmit`:
-
-```tsx
 import { MotionReveal } from "@/components/ui/motion-reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,7 +11,6 @@ import { useToast } from "@/hooks/use-toast";
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // Track the custom Select component value safely
   const [selectedService, setSelectedService] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,7 +20,6 @@ export default function Contact() {
     const target = e.target as HTMLFormElement;
     const formData = new FormData(target);
 
-    // Extracting standard input values using their name attributes
     const firstName = formData.get("firstName") || "";
     const lastName = formData.get("lastName") || "";
     const email = formData.get("email") || "Not Provided";
@@ -36,7 +27,6 @@ export default function Contact() {
     const city = formData.get("city") || "";
     const message = formData.get("message") || "None Provided";
 
-    // Mapping keys to readable text strings for the client's business clarity
     const serviceLabels: Record<string, string> = {
       level2: "Level 2 Sleep Test Device",
       level3: "Level 3 Sleep Apnea Test",
@@ -48,22 +38,23 @@ export default function Contact() {
     };
     const readableService = serviceLabels[selectedService] || "Not Specified";
 
-    // Format the text using WhatsApp bold tags (*) and URI linebreaks (%0A)
     const businessNumber = "917276850801";
-    const textMessage = `*New Inquiry from Website*%0A%0A` +
-      `*Name:* ${firstName} ${lastName}%0A` +
-      `*Email:* ${email}%0A` +
-      `*Phone:* ${phone}%0A` +
-      `*Device/Service:* ${readableService}%0A` +
-      `*City:* ${city}%0A%0A` +
+    
+    // Formatted securely using clean template strings
+    const textMessage = `*New Inquiry from Website*\n\n` +
+      `*Name:* ${firstName} ${lastName}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Device/Service:* ${readableService}\n` +
+      `*City:* ${city}\n\n` +
       `*Message:* ${message}`;
 
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${businessNumber}&text=${textMessage}`;
+    // Properly encode string for URL usage
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${businessNumber}&text=${encodeURIComponent(textMessage)}`;
 
     setTimeout(() => {
       setIsSubmitting(false);
 
-      // Open WhatsApp setup
       window.open(whatsappUrl, "_blank");
 
       toast({
@@ -71,7 +62,6 @@ export default function Contact() {
         description: "Please send the pre-filled text to submit your inquiry.",
       });
 
-      // Clear the inputs and reset state
       target.reset();
       setSelectedService("");
     }, 1000);
@@ -121,7 +111,7 @@ export default function Contact() {
                         Pune, Maharashtra 411040, India.
                       </p>
                       <a
-                        href="https://maps.google.com/?q=Shop+No.17,+Legend+Prestige,+Bhagwan+Tatyasaheb+Kawade+Rd,+Wanowrie,+Pune,+Maharashtra+411040"
+                        href="https://maps.google.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm font-medium text-secondary hover:underline mt-2 inline-block"
@@ -261,7 +251,7 @@ export default function Contact() {
       <section className="h-[400px] w-full bg-muted relative border-y border-border">
         <iframe
           title="Sleep Solutions India Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7635!2d73.8939!3d18.4985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzU0LjYiTiA3M8KwNTMnMzguMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+          src="https://maps.google.com"
           className="w-full h-full border-0"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -270,5 +260,3 @@ export default function Contact() {
     </div>
   );
 }
-
-```
