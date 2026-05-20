@@ -251,8 +251,9 @@ export default function Contact() {
       <section className="h-[400px] w-full bg-muted relative border-y border-border">
         <iframe
           title="Sleep Solutions India Location"
-          src="https://maps.app.goo.gl/iGe9RMc764UZRXwy5"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2127116768395!2d73.87673107592416!3d18.511388569213197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c17b7ad5de35%3A0xd38e0d6127f60f60!2sSleep%20Solutions%20-%20sleep%20apnea%20test%20%2Fcpap%2F%20bipap%20%2Fnebulization%20machine%20%2F%20portable%20ventilator%20in%20pune!5e0!3m2!1sen!2sin!4v1716200000000!5m2!1sen!2sin"
           className="w-full h-full border-0"
+          allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
