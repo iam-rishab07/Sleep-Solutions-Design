@@ -2,7 +2,7 @@ import { MotionReveal } from "@/components/ui/motion-reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Wind, Activity, Waves, Zap, CheckCircle2, Star, MapPin } from "lucide-react";
-import { MapPin, Phone, Mail, Clock, Send, Package, Smile, Building2, ClipboardList } from "lucide-react";
+import { Phone, Mail, Clock, Send, Package, Smile, Building2, ClipboardList } from "lucide-react";
 
 export default function Home() {
   return (
