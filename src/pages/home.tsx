@@ -2,6 +2,7 @@ import { MotionReveal } from "@/components/ui/motion-reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Wind, Activity, Waves, Zap, CheckCircle2, Star, MapPin } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Package, Smile, Building2, ClipboardList } from "lucide-react";
 
 export default function Home() {
   return (
@@ -240,32 +241,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-white">
+      {/* Company Statistics */}
+      <section className="py-24 bg-white border-t border-border/50">
         <div className="container mx-auto px-4 md:px-6">
-          <MotionReveal>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-16">What Our Customers Say</h2>
-          </MotionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { text: "Sleep Solutions provided the CPAP device at our home in Nashik within days. The setup support was excellent and the device works perfectly.", author: "Ramesh P.", location: "Nashik" },
-              { text: "We needed a sleep apnea test kit for my father at home. Sleep Solutions delivered everything we needed with clear instructions. Highly recommended.", author: "Meera S.", location: "Pune" },
-              { text: "The oxygen concentrator supplied by Sleep Solutions has been a lifesaver for our patient. Reliable service across Kolhapur.", author: "Dr. Vikram K.", location: "Kolhapur" },
-            ].map((review, i) => (
-              <MotionReveal key={i} delay={i * 0.1}>
-                <div className="bg-muted/30 p-8 rounded-2xl h-full flex flex-col">
-                  <div className="flex text-secondary mb-6">
-                    {[1, 2, 3, 4, 5].map(star => <Star key={star} size={18} fill="currentColor" />)}
+              { value: "1500+", label: "Product Range", icon: Package },
+              { value: "1020+", label: "Satisfied Clients", icon: Smile },
+              { value: "3", label: "Branches", icon: Building2 },
+              { value: "2641+", label: "Free Quotes Sent", icon: ClipboardList },
+            ].map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <MotionReveal key={i} delay={i * 0.1}>
+                  <div className="flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-muted/30 hover:bg-muted/50 transition-colors h-full border border-transparent hover:border-border/50">
+                    <div className="bg-primary/10 p-4 rounded-full mb-6 text-primary">
+                      <Icon size={32} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-2">
+                      {stat.value}
+                    </h3>
+                    <p className="text-muted-foreground font-medium text-base md:text-lg">
+                      {stat.label}
+                    </p>
                   </div>
-                  <p className="text-foreground italic mb-8 flex-1">"{review.text}"</p>
-                  <div>
-                    <p className="font-bold text-primary">{review.author}</p>
-                    <p className="text-sm text-muted-foreground">{review.location}</p>
-                  </div>
-                </div>
-              </MotionReveal>
-            ))}
+                </MotionReveal>
+              );
+            })}
           </div>
         </div>
       </section>
