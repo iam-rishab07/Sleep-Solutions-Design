@@ -18,9 +18,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,25 +30,22 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b border-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-border shadow-sm py-2"
-          : "bg-white/10 backdrop-blur-sm py-3"
+          ? "bg-white/95 backdrop-blur-md border-border shadow-sm py-2"
+          : "bg-white border-border/60 py-3"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
+
+          {/* Logo */}
           <Link href="/" className="flex items-center group" data-testid="nav-logo">
-            <div className={cn(
-              "rounded-lg px-2 py-1 transition-all duration-300",
-              isScrolled ? "bg-white" : "bg-white/90"
-            )}>
-              <img
-                src="/images/logo.png"
-                alt="Sleep Solutions India"
-                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
-              />
-            </div>
+            <img
+              src="/images/logo.png"
+              alt="Sleep Solutions India"
+              className="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -62,9 +57,9 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-colors hover:text-primary",
-                      isScrolled
-                        ? (location === link.href ? "text-primary" : "text-muted-foreground")
-                        : (location === link.href ? "text-white" : "text-white/80")
+                      location === link.href
+                        ? "text-primary font-semibold"
+                        : "text-muted-foreground"
                     )}
                     data-testid={`nav-link-${link.label.toLowerCase()}`}
                   >
@@ -73,27 +68,14 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-            <Button
-              asChild
-              size="lg"
-              className={cn(
-                "rounded-full font-medium transition-colors",
-                isScrolled
-                  ? ""
-                  : "bg-white text-primary hover:bg-white/90"
-              )}
-              data-testid="nav-contact-btn"
-            >
+            <Button asChild size="lg" className="rounded-full font-medium" data-testid="nav-contact-btn">
               <Link href="/contact">Contact Us</Link>
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button
-            className={cn(
-              "md:hidden p-2",
-              isScrolled ? "text-foreground" : "text-white"
-            )}
+            className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="mobile-menu-toggle"
             aria-label="Toggle menu"
