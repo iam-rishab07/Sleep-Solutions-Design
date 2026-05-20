@@ -251,7 +251,7 @@ export default function Contact() {
       <section className="h-[400px] w-full bg-muted relative border-y border-border">
         <iframe
           title="Sleep Solutions India Location"
-          src="https://maps.google.com"
+          src="https://maps.app.goo.gl/iGe9RMc764UZRXwy5"
           className="w-full h-full border-0"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
