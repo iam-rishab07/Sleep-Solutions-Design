@@ -77,7 +77,6 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  /* Deep serene blue & clean healthcare palette */
   --background: 220 20% 98%;
   --foreground: 230 40% 15%;
 
@@ -103,16 +102,17 @@
   --primary: 230 45% 20%;
   --primary-foreground: 0 0% 100%;
 
-  /* CHANGED: Swapped peach for a crisp, visible slate-blue tint */
-  --secondary: 220 15% 94%;
-  --secondary-foreground: 230 45% 15%;
+  /* CHANGED: Made the secondary backgrounds a darker steel gray for high contrast */
+  --secondary: 220 15% 35%;
+  --secondary-foreground: 0 0% 100%; /* Pure white text inside those elements */
 
-  --muted: 220 20% 94%;
-  --muted-foreground: 230 15% 45%;
+  /* CHANGED: Also darkened muted inputs for clear visibility */
+  --muted: 220 15% 35%;
+  --muted-foreground: 220 20% 85%; /* Light gray placeholder text */
 
-  /* CHANGED: Swapped peach for high-contrast matching color accent */
-  --accent: 220 15% 94%;
-  --accent-foreground: 230 45% 20%;
+  /* CHANGED: Matching accent */
+  --accent: 220 15% 35%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 100%;
@@ -187,14 +187,12 @@
   --primary: 220 20% 95%;
   --primary-foreground: 230 45% 10%;
 
-  /* CHANGED: Swapped out dark amber tones for deep dark slate combinations */
   --secondary: 230 30% 18%;
   --secondary-foreground: 220 20% 90%;
 
   --muted: 230 35% 20%;
   --muted-foreground: 220 15% 65%;
 
-  /* CHANGED: Kept dark layout alignment consistent */
   --accent: 230 30% 18%;
   --accent-foreground: 220 20% 90%;
 
